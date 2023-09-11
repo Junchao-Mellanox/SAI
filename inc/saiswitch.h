@@ -2874,6 +2874,70 @@ typedef enum _sai_switch_attr_t
     SAI_SWITCH_ATTR_HOSTIF_OPER_STATUS_UPDATE_MODE,
 
     /**
+     * @brief Health notification callback function passed to the adapter.
+     *
+     * Use sai_switch_asic_sdk_health_event_notification_fn as notification function.
+     *
+     * @type sai_pointer_t sai_switch_asic_sdk_health_event_notification_fn
+     * @flags CREATE_AND_SET
+     * @default NULL
+     */
+    SAI_SWITCH_ATTR_SWITCH_ASIC_SDK_HEALTH_EVENT_NOTIFY,
+
+    /**
+     * @brief Registration for health fatal categories.
+     *
+     * For specifying categories of causes for severity fatal events
+     *
+     * @type sai_uint32_t
+     * @flags CREATE_AND_SET
+     * @default 0
+     */
+    SAI_SWITCH_ATTR_REG_FATAL_SWITCH_ASIC_SDK_HEALTH_CATEGORY,
+
+    /**
+     * @brief Registration for health warning categories.
+     *
+     * For specifying categories of causes for severity warning events
+     *
+     * @type sai_uint32_t
+     * @flags CREATE_AND_SET
+     * @default 0
+     */
+    SAI_SWITCH_ATTR_REG_WARNING_SWITCH_ASIC_SDK_HEALTH_CATEGORY,
+
+    /**
+     * @brief Registration for health notice categories.
+     *
+     * For specifying categories of causes for severity notice events
+     *
+     * @type sai_uint32_t
+     * @flags CREATE_AND_SET
+     * @default 0
+     */
+    SAI_SWITCH_ATTR_REG_NOTICE_SWITCH_ASIC_SDK_HEALTH_CATEGORY,
+
+    /**
+     * @brief ACL chain capabilities supported by the NPU
+     *
+     * @type sai_uint32_t
+     * @flags READ_ONLY
+     */
+    SAI_SWITCH_ATTR_ACL_CHAIN_LIST,
+
+    /**
+     * @brief Port host tx ready notification callback
+     * function passed to the adapter.
+     *
+     * Use sai_port_host_tx_ready_notification_fn as notification function.
+     *
+     * @type sai_pointer_t sai_port_host_tx_ready_notification_fn
+     * @flags CREATE_AND_SET
+     * @default NULL
+     */
+    SAI_SWITCH_ATTR_PORT_HOST_TX_READY_NOTIFY,
+
+    /**
      * @brief End of attributes
      */
     SAI_SWITCH_ATTR_END,
@@ -3084,6 +3148,16 @@ typedef enum _sai_switch_stat_t
  * the transceiver type plugged in to the port
  */
 #define SAI_KEY_HW_PORT_PROFILE_ID_CONFIG_FILE    "SAI_HW_PORT_PROFILE_ID_CONFIG_FILE"
+
+/**
+ * @brief Switch health event callback
+ *
+ * @objects switch_id SAI_OBJECT_TYPE_SWITCH
+ *
+ * @param[in] switch_id Switch Id
+ */
+typedef void (*sai_switch_asic_sdk_health_event_notification_fn)(
+        _In_ sai_object_id_t switch_id);
 
 /**
  * @brief Switch shutdown request callback.
