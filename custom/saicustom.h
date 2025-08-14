@@ -39,13 +39,8 @@
  typedef enum _sai_api_custom_t
  {
      SAI_API_CUSTOM_RANGE_START = SAI_API_CUSTOM_RANGE_BASE,
- 
-     SAI_API_ONE = SAI_API_CUSTOM_RANGE_START,
- 
-     /* Add new custom APIs above this line */
- 
+
      SAI_API_CUSTOM_RANGE_END
- 
  } sai_api_custom_t;
 
 
