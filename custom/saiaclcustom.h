@@ -29,6 +29,22 @@
 
 #include <saiacl.h>
 
+/*
+ * @brief Custom ACL Action Type
+ *
+ * @flags free
+ */
+typedef enum _sai_custom_acl_action_type_t {
+    /** Start of custom action type. */
+    SAI_CUSTOM_ACL_ACTION_TYPE_START,
+
+    /** Enable ARS forwarding for a given match condition. */
+    SAI_CUSTOM_ACL_ACTION_TYPE_ARS_ENABLE = SAI_CUSTOM_ACL_ACTION_TYPE_START,
+
+    /** End of custom action type. */
+    SAI_CUSTOM_ACL_ACTION_TYPE_END = SAI_CUSTOM_ACL_ACTION_TYPE_ARS_ENABLE,
+} sai_custom_acl_action_type_t;
+
 /**
  * @brief SAI ACL table attribute custom
  *
@@ -123,6 +139,25 @@ typedef enum _sai_acl_entry_attr_custom_t {
     SAI_ACL_ENTRY_ATTR_FIELD_BTH_RESERVED = SAI_ACL_ENTRY_ATTR_FIELD_BTH_ACKREQ_RESV7,
 
     /** End of custom range base */
-    SAI_ACL_ENTRY_ATTR_FIELD_CUSTOM_RANGE_END = SAI_ACL_ENTRY_ATTR_FIELD_BTH_ACKREQ_RESV7
+    SAI_ACL_ENTRY_ATTR_FIELD_CUSTOM_RANGE_END = SAI_ACL_ENTRY_ATTR_FIELD_BTH_ACKREQ_RESV7,
+
+    /**
+     * @brief Start of ACL entry custom action attributes
+     */
+    SAI_ACL_ENTRY_ATTR_ACTION_CUSTOM_RANGE_START,
+
+    /**
+     * @brief Enable ARS forwarding for a given match condition.
+     * This rule takes effect only when global ARS profile object is created and has binding to the switch
+     *
+     * @type sai_acl_action_data_t bool
+     * @flags CREATE_AND_SET
+     * @default disabled
+     */
+    SAI_ACL_ENTRY_ATTR_ACTION_ARS_ENABLE = SAI_ACL_ENTRY_ATTR_ACTION_CUSTOM_RANGE_START,
+
+    /** End of ACL entry custom action attributes */
+    SAI_ACL_ENTRY_ATTR_ACTION_CUSTOM_RANGE_END = SAI_ACL_ENTRY_ATTR_ACTION_ARS_ENABLE,
 } sai_acl_entry_attr_custom_t;
+
 #endif /* __SAIACLCUSTOM_H_ */
