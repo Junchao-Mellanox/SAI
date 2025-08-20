@@ -529,8 +529,11 @@ typedef enum _sai_hostif_trap_type_t
     /**
      * @brief End of trap types
      */
-    SAI_HOSTIF_TRAP_TYPE_END = 0x0000a000
+    SAI_HOSTIF_TRAP_TYPE_END = 0x0000a000,
 
+    SAI_HOSTIF_TRAP_TYPE_CUSTOM_RANGE_START = 0x10000000,
+
+    SAI_HOSTIF_TRAP_TYPE_CUSTOM_RANGE_END = 0x1FFFFFFF,
 } sai_hostif_trap_type_t;
 
 /**
