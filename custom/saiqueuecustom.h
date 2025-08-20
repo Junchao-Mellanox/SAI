@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2024 Microsoft Open Technologies, Inc.
+ * Copyright (c) 2018 Microsoft Open Technologies, Inc.
  * SPDX-FileCopyrightText: NVIDIA CORPORATION & AFFILIATES
  * Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
  *
@@ -19,36 +19,24 @@
  *    assistance with these files: Intel Corporation, Mellanox Technologies Ltd,
  *    Dell Products, L.P., Facebook, Inc., Marvell International Ltd.
  *
- * @file    saicustom.h
+ * @file    saiportcustom.h
  *
- * @brief   This module defines custom of the Switch Abstraction Interface (SAI)
+ * @brief   This module defines port custom of the Switch Abstraction Interface (SAI)
  */
 
-#ifndef __SAICUSTOM_H_
-#define __SAICUSTOM_H_
+#ifndef __SAIQUEUECUSTOM_H_
+#define __SAIQUEUECUSTOM_H_
 
-#include <sai.h>
-#include <saitypes.h>
-
-#include "saiaclcustom.h"
-#include "saiswitchcustom.h"
-#include "saihostifcustom.h"
-#include "saiportcustom.h"
-#include "saiqueuecustom.h"
-#include "saiaclcustom.h"
+#include <saiqueue.h>
 
 /**
- * @brief Custom SAI APIs
+ * @brief SAI queue statistic custom,
  *
  * @flags free
  */
-typedef enum _sai_api_custom_t {
-    SAI_API_CUSTOM_RANGE_START = SAI_API_CUSTOM_RANGE_BASE,
+typedef enum _sai_queue_stat_custom_t {
+    /** The amount of all dropped packets of a queue */
+    SAI_QUEUE_STAT_MMU_DROPPED_PACKETS = SAI_QUEUE_STAT_CUSTOM_RANGE_BASE,
+} sai_queue_stat_custom_t;
 
-    /* Add new custom APIs above this line */
-
-    SAI_API_CUSTOM_RANGE_END
-} sai_api_custom_t;
-
-
-#endif /* __SAICUSTOM_H_ */
+#endif /* __SAIQUEUECUSTOM_H_ */
