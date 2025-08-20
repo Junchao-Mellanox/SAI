@@ -533,7 +533,7 @@ typedef enum _sai_hostif_trap_type_t
 
     SAI_HOSTIF_TRAP_TYPE_CUSTOM_RANGE_START = 0x10000000,
 
-    SAI_HOSTIF_TRAP_TYPE_CUSTOM_RANGE_END = 0x1FFFFFFF,
+    SAI_HOSTIF_TRAP_TYPE_CUSTOM_RANGE_END = 0x1fffffff,
 } sai_hostif_trap_type_t;
 
 /**
